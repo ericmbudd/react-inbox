@@ -2,16 +2,24 @@ import React from 'react'
 
 const Message = ( { message } ) => {
   console.log( "message", message );
-  return ( <div className={message.read
-      ? `row message read`
-      : `row message unread`}>
+
+  let read = message.read
+    ? 'row message read'
+    : 'row message unread'
+
+  let starred = "star fa " + (
+    message.starred
+    ? 'fa-star-o'
+    : 'fa-star')
+
+  return ( <div className={read}>
     <div className="col-xs-1">
       <div className="row">
         <div className="col-xs-2">
           <input type="checkbox"/>
         </div>
         <div className="col-xs-2">
-          <i className="star fa fa-star-o"></i>
+          <i className={starred}></i>
         </div>
       </div>
     </div>
@@ -22,5 +30,4 @@ const Message = ( { message } ) => {
     </div>
   </div> )
 }
-
 export default Message
