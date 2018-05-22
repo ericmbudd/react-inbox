@@ -1,7 +1,24 @@
 import React from 'react'
 
-const MessageList = ( { messages } ) => ( <div className="collection">
-  {messages.map( message => <Message key={message.id} message={message}/> )}
-</div> )
+const Message = ( { key, message } ) => {
+  console.log( "message", message );
+  return ( <div className="row message unread">
+    <div className="col-xs-1">
+      <div className="row">
+        <div className="col-xs-2">
+          <input type="checkbox"/>
+        </div>
+        <div className="col-xs-2">
+          <i className="star fa fa-star-o"></i>
+        </div>
+      </div>
+    </div>
+    <div className="col-xs-11">
+      <a href="#">
+        {message.subject}
+      </a>
+    </div>
+  </div> )
+}
 
-export default MessageList
+export default Message

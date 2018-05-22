@@ -1,24 +1,11 @@
 import React from 'react'
+import Message from './Message'
 
-const Message = ( { props } ) => {
-  // console.log(copyright);
-  return ( <div className="row message unread">
-    <div className="col-xs-1">
-      <div className="row">
-        <div className="col-xs-2">
-          <input type="checkbox"/>
-        </div>
-        <div className="col-xs-2">
-          <i className="star fa fa-star-o"></i>
-        </div>
-      </div>
-    </div>
-    <div className="col-xs-11">
-      <a href="#">
-        Here is some message text that has a bunch of blahhhhh
-      </a>
-    </div>
+const MessageList = ( { messages } ) => {
+  console.log( messages )
+  return ( <div className="collection">
+    {messages.map( message => <Message key={message.id} message={message}/> )}
   </div> )
 }
 
-export default Message
+export default MessageList

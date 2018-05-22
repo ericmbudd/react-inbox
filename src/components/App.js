@@ -11,7 +11,7 @@ class App extends Component {
   render() {
     return ( <div className="App">
       <Toolbar/>
-      <MessageList data={seed}/>
+      <MessageList messages={seed}/>
     </div> );
   }
 }
