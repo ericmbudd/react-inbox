@@ -2,7 +2,7 @@ import React from 'react'
 
 const Toolbar = ( { copyright } ) => {
   // console.log(copyright);
-  return ( <footer className="page-footer">
+  return ( <footer className="toolbar">
     <div className="container">
       <div className="row">
         <div className="col l6 s12">
