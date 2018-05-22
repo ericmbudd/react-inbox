@@ -12,11 +12,19 @@ const Message = ( { message } ) => {
     ? 'fa-star-o'
     : 'fa-star')
 
+  let selected = message.selected
+    ? "checked"
+    : ''
+
+  if ( message.selected ) {
+    read = 'row message selected'
+  }
+
   return ( <div className={read}>
     <div className="col-xs-1">
       <div className="row">
         <div className="col-xs-2">
-          <input type="checkbox"/>
+          <input type="checkbox" checked={selected}/>
         </div>
         <div className="col-xs-2">
           <i className={starred}></i>
