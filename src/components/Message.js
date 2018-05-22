@@ -32,6 +32,11 @@ const Message = ( { message } ) => {
       </div>
     </div>
     <div className="col-xs-11">
+      {
+        message
+          .labels
+          .map( label => <span className="label label-warning">{label}</span> )
+      }
       <a href="#">
         {message.subject}
       </a>
