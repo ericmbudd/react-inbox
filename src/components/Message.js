@@ -1,8 +1,10 @@
 import React from 'react'
 
-const Message = ( { key, message } ) => {
+const Message = ( { message } ) => {
   console.log( "message", message );
-  return ( <div className="row message unread">
+  return ( <div className={message.read
+      ? `row message read`
+      : `row message unread`}>
     <div className="col-xs-1">
       <div className="row">
         <div className="col-xs-2">
