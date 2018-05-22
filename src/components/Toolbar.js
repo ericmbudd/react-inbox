@@ -2,20 +2,44 @@ import React from 'react'
 
 const Toolbar = ( { copyright } ) => {
   // console.log(copyright);
-  return ( <footer className="toolbar">
-    <div className="container">
-      <div className="row">
-        <div className="col l6 s12">
-          <h5 className="white-text">Shop ALL THE THINGS</h5>
-        </div>
-      </div>
+  return ( <div className="row toolbar">
+    <div className="col-md-12">
+      <p className="pull-right">
+        <span className="badge badge">2</span>
+        unread messages
+      </p>
+
+      <button className="btn btn-default">
+        <i className="fa fa-check-square-o"></i>
+      </button>
+
+      <button className="btn btn-default">
+        Mark As Read
+      </button>
+
+      <button className="btn btn-default">
+        Mark As Unread
+      </button>
+
+      <select className="form-control label-select">
+        <option>Apply label</option>
+        <option value="dev">dev</option>
+        <option value="personal">personal</option>
+        <option value="gschool">gschool</option>
+      </select>
+
+      <select className="form-control label-select">
+        <option>Remove label</option>
+        <option value="dev">dev</option>
+        <option value="personal">personal</option>
+        <option value="gschool">gschool</option>
+      </select>
+
+      <button className="btn btn-default">
+        <i className="fa fa-trash-o"></i>
+      </button>
     </div>
-    <div className="footer-copyright">
-      <div className="container">
-        &copy; {1999}
-      </div>
-    </div>
-  </footer> )
+  </div> )
 }
 
 export default Toolbar
