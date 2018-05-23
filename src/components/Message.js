@@ -1,7 +1,6 @@
 import React from 'react'
 
-const Message = ( { message } ) => {
-  console.log( "message", message );
+const Message = ( { message, toggleStar } ) => {
 
   let read = message.read
     ? 'row message read'
@@ -27,7 +26,7 @@ const Message = ( { message } ) => {
           <input type="checkbox" checked={selected}/>
         </div>
         <div className="col-xs-2">
-          <i className={starred}></i>
+          <i className={starred} onClick={toggleStar.bind( null, message )}></i>
         </div>
       </div>
     </div>

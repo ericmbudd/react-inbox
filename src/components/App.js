@@ -8,10 +8,52 @@ import seed from '../data/seed.json';
 console.log( seed )
 
 class App extends Component {
+  constructor( props ) {
+    super( props )
+    this.state = {
+      messages: seed
+    }
+  }
+
+  toggleStar = ( message ) => {
+
+    let indexToUpdate = this
+      .state
+      .messages
+      .filter( x => message.id === x.id )[ 0 ]
+
+    console.log( "indexToUpdate", indexToUpdate )
+
+    if ( indexToUpdate.starred ) {
+      indexToUpdate.starred = false
+    } else {
+      indexToUpdate.starred = true
+    }
+
+    this.setState( {
+      messages: [
+        ...this
+          .state
+          .messages
+          .slice( 0, message.id - 1 ),
+        indexToUpdate,
+        ...this
+          .state
+          .messages
+          .slice( message.id )
+      ]
+    } )
+  }
+
+  //
+  //   inputWasChanged = ( e ) => {
+  //     this.setState( { greeting: e.target.value } )
+  //   }
+
   render() {
     return ( <div className="App">
       <Toolbar/>
-      <MessageList messages={seed}/>
+      <MessageList messages={this.state.messages} toggleStar={this.toggleStar}/>
     </div> );
   }
 }
