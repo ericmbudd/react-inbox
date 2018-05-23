@@ -16,10 +16,7 @@ class App extends Component {
   }
 
   toggleStar = ( message ) => {
-    let indexToUpdate = this
-      .state
-      .messages
-      .filter( x => message.id === x.id )[ 0 ]
+    let indexToUpdate = this.state.messages.filter( x => message.id === x.id )[ 0 ]
 
     console.log( "indexToUpdate", indexToUpdate )
 
@@ -31,24 +28,15 @@ class App extends Component {
 
     this.setState( {
       messages: [
-        ...this
-          .state
-          .messages
-          .slice( 0, message.id - 1 ),
+        ...this.state.messages.slice( 0, message.id - 1 ),
         indexToUpdate,
-        ...this
-          .state
-          .messages
-          .slice( message.id )
+        ...this.state.messages.slice( message.id )
       ]
     } )
   }
 
   toggleSelected = ( message ) => {
-    let indexToUpdate = this
-      .state
-      .messages
-      .filter( x => message.id === x.id )[ 0 ]
+    let indexToUpdate = this.state.messages.filter( x => message.id === x.id )[ 0 ]
 
     console.log( "indexToUpdate", indexToUpdate )
 
@@ -60,15 +48,9 @@ class App extends Component {
 
     this.setState( {
       messages: [
-        ...this
-          .state
-          .messages
-          .slice( 0, message.id - 1 ),
+        ...this.state.messages.slice( 0, message.id - 1 ),
         indexToUpdate,
-        ...this
-          .state
-          .messages
-          .slice( message.id )
+        ...this.state.messages.slice( message.id )
       ]
     } )
   }

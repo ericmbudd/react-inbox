@@ -16,7 +16,12 @@ const Message = ( { message, toggleStar, toggleSelected } ) => {
     : ''
 
   if ( message.selected ) {
-    read = 'row message selected'
+    if ( message.read ) {
+      read = 'row message selected read'
+    } else {
+      read = 'row message selected unread'
+    }
+
   }
 
   return ( <div className={read}>
@@ -31,11 +36,7 @@ const Message = ( { message, toggleStar, toggleSelected } ) => {
       </div>
     </div>
     <div className="col-xs-11">
-      {
-        message
-          .labels
-          .map( label => <span className="label label-warning">{label}</span> )
-      }
+      {message.labels.map( label => <span className="label label-warning">{label}</span> )}
       <a href="#">
         {message.subject}
       </a>
