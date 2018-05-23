@@ -16,7 +16,6 @@ class App extends Component {
   }
 
   toggleStar = ( message ) => {
-
     let indexToUpdate = this
       .state
       .messages
@@ -45,6 +44,35 @@ class App extends Component {
     } )
   }
 
+  toggleSelected = ( message ) => {
+    let indexToUpdate = this
+      .state
+      .messages
+      .filter( x => message.id === x.id )[ 0 ]
+
+    console.log( "indexToUpdate", indexToUpdate )
+
+    if ( indexToUpdate.selected ) {
+      indexToUpdate.selected = false
+    } else {
+      indexToUpdate.selected = true
+    }
+
+    this.setState( {
+      messages: [
+        ...this
+          .state
+          .messages
+          .slice( 0, message.id - 1 ),
+        indexToUpdate,
+        ...this
+          .state
+          .messages
+          .slice( message.id )
+      ]
+    } )
+  }
+
   //
   //   inputWasChanged = ( e ) => {
   //     this.setState( { greeting: e.target.value } )
@@ -53,7 +81,7 @@ class App extends Component {
   render() {
     return ( <div className="App">
       <Toolbar/>
-      <MessageList messages={this.state.messages} toggleStar={this.toggleStar}/>
+      <MessageList messages={this.state.messages} toggleStar={this.toggleStar} toggleSelected={this.toggleSelected}/>
     </div> );
   }
 }
