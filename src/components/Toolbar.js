@@ -1,11 +1,14 @@
 import React from 'react'
 
-const Toolbar = ( { copyright } ) => {
-  // console.log(copyright);
+const Toolbar = ( { messages } ) => {
+  console.log( "in toolbar, messages", messages );
+  let messageCount = messages.filter( each => each.read === false ).length
+  console.log( "messageCount", messageCount )
+
   return ( <div className="row toolbar">
     <div className="col-md-12">
       <p className="pull-right">
-        <span className="badge badge">2</span>
+        <span className="badge badge">{messageCount}</span>
         unread messages
       </p>
 
