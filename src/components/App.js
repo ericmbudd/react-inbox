@@ -68,8 +68,25 @@ class App extends Component {
         return x
       } )
     }
+  }
 
-    // console.log( "messagesToUpdate", messagesToUpdate )
+  markReadStatus = ( messages, readStatus ) => {
+    let messagesToUpdate = []
+    if ( readStatus === true ) {
+      messagesToUpdate = this.state.messages.map( x => {
+        if ( x.selected ) {
+          x.read = true
+        }
+        return x
+      } )
+    } else {
+      messagesToUpdate = this.state.messages.map( x => {
+        if ( x.selected ) {
+          x.read = false
+        }
+        return x
+      } )
+    }
 
     this.setState( { messages: messagesToUpdate } )
   }
@@ -81,7 +98,7 @@ class App extends Component {
 
   render() {
     return ( <div className="App">
-      <Toolbar messages={this.state.messages} selectAll={this.selectAll}/>
+      <Toolbar messages={this.state.messages} selectAll={this.selectAll} markReadStatus={this.markReadStatus}/>
       <MessageList messages={this.state.messages} toggleStar={this.toggleStar} toggleSelected={this.toggleSelected}/>
     </div> );
   }
