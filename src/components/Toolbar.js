@@ -1,7 +1,7 @@
 import React from 'react'
 
 const Toolbar = ( { messages, selectAll } ) => {
-  console.log( "in toolbar, messages", messages );
+  // console.log( "in toolbar, messages", messages );
   let unreadCount = messages.filter( each => each.read === false ).length
   let selectedCount = messages.filter( each => each.selected === true ).length
 
