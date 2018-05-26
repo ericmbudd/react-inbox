@@ -29,7 +29,7 @@ const Toolbar = ( { messages, selectAll } ) => {
       </p>
 
       <button className="btn btn-default">
-        <i className={selectedStatus} onClick={selectAll.bind( null, messages.length, selectedCount )}></i>
+        <i className={selectedStatus} onClick={selectAll.bind( null, messages, selectedCount )}></i>
       </button>
 
       <button className="btn btn-default">

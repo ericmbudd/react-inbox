@@ -55,11 +55,23 @@ class App extends Component {
     } )
   }
 
-  selectAll = ( messageCount, selectedCount ) => {
-    let messagesToUpdate = this.state.messages.map( x => x.selected = true )[ 0 ]
-    console.log( "messagesToUpdate", messagesToUpdate )
+  selectAll = ( messages, selectedCount ) => {
+    let messagesToUpdate = []
+    if ( selectedCount === messages.length ) {
+      messagesToUpdate = this.state.messages.map( x => {
+        x.selected = false
+        return x
+      } )
+    } else {
+      messagesToUpdate = this.state.messages.map( x => {
+        x.selected = true
+        return x
+      } )
+    }
 
-    this.setState( { messages: [ messagesToUpdate ] } )
+    // console.log( "messagesToUpdate", messagesToUpdate )
+
+    this.setState( { messages: messagesToUpdate } )
   }
 
   //
