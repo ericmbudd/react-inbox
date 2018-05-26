@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Toolbar = ( { messages, selectAll, markReadStatus } ) => {
+const Toolbar = ( { messages, selectAll, markReadStatus, deleteMessages } ) => {
   // console.log( "in toolbar, messages", messages );
   let unreadCount = messages.filter( each => each.read === false ).length
   let selectedCount = messages.filter( each => each.selected === true ).length
@@ -54,7 +54,7 @@ const Toolbar = ( { messages, selectAll, markReadStatus } ) => {
       </select>
 
       <button className="btn btn-default">
-        <i className="fa fa-trash-o"></i>
+        <i className="fa fa-trash-o" onClick={deleteMessages.bind( null, messages )}></i>
       </button>
     </div>
   </div> )

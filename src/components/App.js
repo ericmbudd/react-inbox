@@ -87,8 +87,14 @@ class App extends Component {
         return x
       } )
     }
+  }
 
-    this.setState( { messages: messagesToUpdate } )
+  deleteMessages = ( messages ) => {
+    let messagesToKeep = this.state.messages.filter( x => !x.selected )
+
+    console.log( "messagesToKeep", messagesToKeep )
+
+    this.setState( { messages: messagesToKeep } )
   }
 
   //
@@ -98,7 +104,7 @@ class App extends Component {
 
   render() {
     return ( <div className="App">
-      <Toolbar messages={this.state.messages} selectAll={this.selectAll} markReadStatus={this.markReadStatus}/>
+      <Toolbar messages={this.state.messages} selectAll={this.selectAll} markReadStatus={this.markReadStatus} deleteMessages={this.deleteMessages}/>
       <MessageList messages={this.state.messages} toggleStar={this.toggleStar} toggleSelected={this.toggleSelected}/>
     </div> );
   }
