@@ -71,6 +71,7 @@ class App extends Component {
   }
 
   markReadStatus = ( messages, readStatus ) => {
+    // console.log( "messages", messages )
     let messagesToUpdate = []
     if ( readStatus === true ) {
       messagesToUpdate = this.state.messages.map( x => {
@@ -87,6 +88,7 @@ class App extends Component {
         return x
       } )
     }
+    this.setState( { messages: messagesToUpdate } )
   }
 
   deleteMessages = ( messages ) => {
