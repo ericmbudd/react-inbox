@@ -55,6 +55,13 @@ class App extends Component {
     } )
   }
 
+  selectAll = () => {
+    let messagesToUpdate = this.state.messages.map( x => x.selected = true )[ 0 ]
+    console.log( "messagesToUpdate", messagesToUpdate )
+
+    this.setState( { messages: [ messagesToUpdate ] } )
+  }
+
   //
   //   inputWasChanged = ( e ) => {
   //     this.setState( { greeting: e.target.value } )
@@ -62,7 +69,7 @@ class App extends Component {
 
   render() {
     return ( <div className="App">
-      <Toolbar messages={this.state.messages}/>
+      <Toolbar messages={this.state.messages} selectAll={this.state.messages}/>
       <MessageList messages={this.state.messages} toggleStar={this.toggleStar} toggleSelected={this.toggleSelected}/>
     </div> );
   }

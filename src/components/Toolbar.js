@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Toolbar = ( { messages } ) => {
+const Toolbar = ( { messages, selectAll } ) => {
   console.log( "in toolbar, messages", messages );
   let messageCount = messages.filter( each => each.read === false ).length
   console.log( "messageCount", messageCount )
