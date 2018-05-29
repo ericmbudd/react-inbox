@@ -28,7 +28,7 @@ const Message = ( { message, toggleStar, toggleSelected } ) => {
     <div className="col-xs-1">
       <div className="row">
         <div className="col-xs-2">
-          <input type="checkbox" checked={selected} onClick={toggleSelected.bind( null, message )}/>
+          <input type="checkbox" checked={selected} onChange={toggleSelected.bind( null, message )}/>
         </div>
         <div className="col-xs-2">
           <i className={starred} onClick={toggleStar.bind( null, message )}></i>
