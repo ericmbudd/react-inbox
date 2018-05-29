@@ -68,6 +68,7 @@ class App extends Component {
         return x
       } )
     }
+    this.setState( { messages: messagesToUpdate } )
   }
 
   markReadStatus = ( messages, readStatus ) => {

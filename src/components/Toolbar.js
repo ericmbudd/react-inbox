@@ -28,8 +28,8 @@ const Toolbar = ( { messages, selectAll, markReadStatus, deleteMessages } ) => {
         unread messages
       </p>
 
-      <button className="btn btn-default">
-        <i className={selectedStatus} onClick={selectAll.bind( null, messages, selectedCount )}></i>
+      <button className="btn btn-default" onClick={selectAll.bind( null, messages, selectedCount )}>
+        <i className={selectedStatus}></i>
       </button>
 
       <button className="btn btn-default" onClick={markReadStatus.bind( null, messages, true )}>
