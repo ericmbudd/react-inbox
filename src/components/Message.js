@@ -1,6 +1,7 @@
 import React from 'react'
 
 const Message = ( { message, toggleStar, toggleSelected } ) => {
+  console.log( this.key )
 
   let read = message.read
     ? 'row message read'
@@ -36,7 +37,7 @@ const Message = ( { message, toggleStar, toggleSelected } ) => {
       </div>
     </div>
     <div className="col-xs-11">
-      {message.labels.map( label => <span className="label label-warning">{label}</span> )}
+      {message.labels.map( ( label, j ) => <span key={j} className="label label-warning">{label}</span> )}
       <a href="#">
         {message.subject}
       </a>
