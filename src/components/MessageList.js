@@ -9,7 +9,7 @@ const MessageList = ( { messages, toggleStar, toggleSelected, updateLabels } ) =
   return ( <div className='collection'>
     {
       messages.map( ( message, i ) => {
-        console.log( `>>> ${ message.id }` )
+        //console.log( `>>> ${ message.id }` )
         // return <p key={message.id}>{message.id}</p>
         return <Message key={i} message={message} toggleStar={toggleStar} toggleSelected={toggleSelected} updateLabels={updateLabels}/>
       } )

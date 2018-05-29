@@ -101,15 +101,33 @@ class App extends Component {
     this.setState( { messages: messagesToKeep } )
   }
 
-  updateLabels = ( messages ) => {
+  updateLabels = ( target, messages, status ) => {
+    console.log( target )
     let messagesToUpdate = []
 
-    messagesToUpdate = this.state.messages.map( x => {
-      if ( x.selected && !x.labels[ "dev" ] ) {
-        x.labels.push[ "dev" ]
-      }
-      return x
-    } )
+    if ( status === "add" ) {
+      messagesToUpdate = this.state.messages.map( x => {
+        console.log( "x.labels", x.labels.indexOf( String( target ) ) )
+        if ( x.selected && x.labels.indexOf( String( target ) ) === -1 ) {
+          x.labels.push( String( target ) )
+          return x
+        }
+        return x
+      } )
+    } else {
+      // var myFish = ['angel', 'clown', 'drum', 'mandarin', 'sturgeon'];
+      // var removed = myFish.splice(3, 1);
+
+      messagesToUpdate = this.state.messages.map( x => {
+        console.log( "x.labels", x.labels.indexOf( String( target ) ) )
+        if ( x.selected && x.labels.indexOf( String( target ) ) === -1 ) {
+          console.log( "remove label at index", x.labels.indexOf( String( target ) ) )
+          x.labels = x.labels.splice( x.labels.indexOf( String( target ), 1 ) )
+          return x
+        }
+        return x
+      } )
+    }
 
     this.setState( { messages: messagesToUpdate } )
   }
@@ -121,7 +139,7 @@ class App extends Component {
 
   render() {
     return ( <div className="App">
-      <Toolbar messages={this.state.messages} selectAll={this.selectAll} markReadStatus={this.markReadStatus} deleteMessages={this.deleteMessages}/>
+      <Toolbar messages={this.state.messages} selectAll={this.selectAll} markReadStatus={this.markReadStatus} deleteMessages={this.deleteMessages} updateLabels={this.updateLabels}/>
       <MessageList messages={this.state.messages} toggleStar={this.toggleStar} toggleSelected={this.toggleSelected} updateLabels={this.updateLabels}/>
     </div> );
   }

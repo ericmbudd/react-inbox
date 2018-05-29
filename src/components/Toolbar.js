@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Toolbar = ( { messages, selectAll, markReadStatus, deleteMessages } ) => {
+const Toolbar = ( { messages, selectAll, markReadStatus, deleteMessages, updateLabels } ) => {
   // console.log( "in toolbar, messages", messages );
   let unreadCount = messages.filter( each => each.read === false ).length
   let selectedCount = messages.filter( each => each.selected === true ).length
@@ -41,14 +41,14 @@ const Toolbar = ( { messages, selectAll, markReadStatus, deleteMessages } ) => {
       <button className="btn btn-default" onClick={markReadStatus.bind( null, messages, false )}>
         Mark As Unread
       </button>
-      <select className="form-control label-select">
+      <select className="form-control label-select" onChange={( event ) => updateLabels( event.target.value, messages, "add" )}>
         <option>Apply label</option>
         <option value="dev">dev</option>
         <option value="personal">personal</option>
         <option value="gschool">gschool</option>
       </select>
 
-      <select className="form-control label-select">
+      <select className="form-control label-select" onChange={( event ) => updateLabels( event.target.value, messages, "remove" )}>
         <option>Remove label</option>
         <option value="dev">dev</option>
         <option value="personal">personal</option>
@@ -61,5 +61,4 @@ const Toolbar = ( { messages, selectAll, markReadStatus, deleteMessages } ) => {
     </div>
   </div> )
 }
-
 export default Toolbar
