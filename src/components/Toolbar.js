@@ -20,6 +20,8 @@ const Toolbar = ( { messages, selectAll, markReadStatus, deleteMessages } ) => {
 
   //console.log( "unreadCount", unreadCount )
 
+  // onChange={updateLabels.bind( null, message )}
+
   return ( <div className="row toolbar">
     <div className="col-md-12">
       <p className="pull-right">

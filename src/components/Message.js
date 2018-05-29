@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Message = ( { message, toggleStar, toggleSelected } ) => {
+const Message = ( { message, toggleStar, toggleSelected, updateLabels } ) => {
   console.log( this.key )
 
   let read = message.read
