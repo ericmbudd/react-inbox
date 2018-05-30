@@ -114,15 +114,18 @@ class App extends Component {
         }
         return x
       } )
+
     } else {
       // var myFish = ['angel', 'clown', 'drum', 'mandarin', 'sturgeon'];
       // var removed = myFish.splice(3, 1);
 
       messagesToUpdate = this.state.messages.map( x => {
+        let newLabels = []
         console.log( "x.labels", x.labels.indexOf( String( target ) ) )
-        if ( x.selected && x.labels.indexOf( String( target ) ) === -1 ) {
+        if ( x.selected && x.labels.indexOf( String( target ) ) !== -1 ) {
           console.log( "remove label at index", x.labels.indexOf( String( target ) ) )
-          x.labels = x.labels.splice( x.labels.indexOf( String( target ), 1 ) )
+          x.labels.splice( x.labels.indexOf( String( target ) ), 1 )
+          console.log( "x.labels", x.labels )
           return x
         }
         return x

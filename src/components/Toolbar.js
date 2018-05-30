@@ -22,6 +22,11 @@ const Toolbar = ( { messages, selectAll, markReadStatus, deleteMessages, updateL
 
   // onChange={updateLabels.bind( null, message )}
 
+  // const resetLabels = () => {
+  //   this.refs.addLabel.reset()
+  //   this.refs.removeLabel.reset()
+  // }
+
   return ( <div className="row toolbar">
     <div className="col-md-12">
       <p className="pull-right">
@@ -41,14 +46,14 @@ const Toolbar = ( { messages, selectAll, markReadStatus, deleteMessages, updateL
       <button className="btn btn-default" onClick={markReadStatus.bind( null, messages, false )}>
         Mark As Unread
       </button>
-      <select className="form-control label-select" onChange={( event ) => updateLabels( event.target.value, messages, "add" )}>
+      <select className="form-control label-select" id="addLabel" onChange={( event ) => updateLabels( event.target.value, messages, "add" )}>
         <option>Apply label</option>
         <option value="dev">dev</option>
         <option value="personal">personal</option>
         <option value="gschool">gschool</option>
       </select>
 
-      <select className="form-control label-select" onChange={( event ) => updateLabels( event.target.value, messages, "remove" )}>
+      <select className="form-control label-select" id="removeLabel" onChange={( event ) => updateLabels( event.target.value, messages, "remove" )}>
         <option>Remove label</option>
         <option value="dev">dev</option>
         <option value="personal">personal</option>
